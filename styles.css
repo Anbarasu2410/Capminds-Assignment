@@ -98,7 +98,15 @@ body {
 .nav-item:hover { background: var(--blue-light); color: var(--blue); }
 .nav-item.active { background: var(--blue-light); color: var(--blue); font-weight: 600; }
 
-.nav-icon { font-size: 18px; flex-shrink: 0; }
+.nav-icon { 
+  font-size: 18px; 
+  flex-shrink: 0; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  color: inherit;
+}
+.nav-icon svg { display: block; }
 .nav-label {
   transition: opacity 0.2s, max-width 0.25s;
   white-space: nowrap;
@@ -153,12 +161,13 @@ body {
 }
 
 .logo-text {
-  font-size: 17px;
-  font-weight: 800;
-  letter-spacing: 2px;
-  color: #111;
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: 3px;
+  color: #000000;
   text-transform: uppercase;
   white-space: nowrap;
+  font-family: 'Segoe UI', Arial, sans-serif;
 }
 
 /* Sidebar sits below the header now — handled above in .sidebar rule */
@@ -815,7 +824,14 @@ select.form-input:has(option[value=""]:checked) {
 }
 
 .mobile-nav-btn.active { color: var(--blue); }
-.mobile-nav-icon { font-size: 20px; line-height: 1; }
+.mobile-nav-icon { 
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  line-height: 1;
+  color: inherit;
+}
+.mobile-nav-icon svg { display: block; }
 .mobile-nav-label { font-size: 11px; font-weight: 500; }
 
 @media (max-width: 900px) {
@@ -835,7 +851,7 @@ select.form-input:has(option[value=""]:checked) {
 
   /* Header */
   .app-header { padding: 0 12px; }
-  .logo-text { font-size: 13px; letter-spacing: 1px; }
+  .logo-text { font-size: 16px; letter-spacing: 2px; }
   .btn-book { padding: 7px 10px; font-size: 12px; }
 
   /* Calendar controls */
