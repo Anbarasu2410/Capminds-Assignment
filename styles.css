@@ -287,7 +287,6 @@ body {
 }
 .cal-day-header:last-child { border-right: none; }
 .cal-day-header.friday { color: var(--blue); }
-
 .cal-body {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -824,39 +823,64 @@ select.form-input:has(option[value=""]:checked) {
 }
 
 @media (max-width: 700px) {
-  .view { padding: 14px 12px; }
-  .filter-bar { padding: 10px 12px; gap: 8px; }
-  .search-wrap { min-width: 120px; max-width: 100%; flex: 1 1 140px; }
-  .date-range-wrap { flex: 1 1 100%; }
-  .form-row { grid-template-columns: 1fr; }
-  .cal-cell { min-height: 60px; }
-  .chip-doctor, .chip-time { display: none; }
-  .appt-table { font-size: 12px; }
-  .appt-table th, .appt-table td { padding: 8px 8px; }
-  .app-header { padding: 0 12px; }
-  .logo-text { font-size: 13px; letter-spacing: 1px; }
-  .btn-book { padding: 7px 12px; font-size: 12px; }
-  .detail-content { grid-template-columns: 100px 1fr; }
-}
-
-@media (max-width: 480px) {
   .sidebar { display: none; }
-  .main-wrapper { margin-left: 0; padding-bottom: 64px; }
+  .main-wrapper { margin-left: 0; }
+  .mobile-nav { display: flex; }
+  .main-wrapper { padding-bottom: 64px; }
+
+  .view { padding: 12px 8px; }
+
+  /* Header */
   .app-header { padding: 0 12px; }
   .logo-text { font-size: 13px; letter-spacing: 1px; }
-  .btn-book { padding: 7px 10px; font-size: 11px; }
+  .btn-book { padding: 7px 10px; font-size: 12px; }
 
-  /* Calendar fits mobile */
-  .cal-day-header { font-size: 8px; padding: 6px 1px; letter-spacing: 0; }
-  .cal-date { font-size: 10px; }
-  .cal-cell { min-height: 48px; padding: 3px 2px 2px 3px; }
+  /* Calendar header controls */
+  .calendar-header { gap: 6px; margin-bottom: 10px; flex-wrap: wrap; justify-content: center; }
+  .cal-month-label { font-size: 13px; min-width: 100px; }
+  .btn-today { padding: 5px 10px; font-size: 12px; }
+
+  /* Calendar grid — shrink day headers to 2 letters */
+  .cal-day-header {
+    font-size: 10px;
+    padding: 7px 2px;
+    letter-spacing: 0;
+    font-weight: 700;
+  }
+  .cal-cell {
+    min-height: 55px;
+    padding: 4px 2px 2px 3px;
+  }
+  .cal-date { font-size: 11px; margin-bottom: 2px; }
+
+  /* Chips — show only a dot/patient name, hide extras */
+  .appt-chip {
+    padding: 2px 3px;
+    font-size: 9px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
   .chip-doctor, .chip-time { display: none; }
-  .chip-patient { font-size: 9px; }
   .chip-actions { display: none; }
+  .chip-patient { font-size: 9px; }
 
-  .modal { margin: 0 4px; }
-  .week-grid { font-size: 11px; }
+  /* Dashboard */
+  .dashboard-title { font-size: 16px; }
+  .filter-bar { padding: 10px; gap: 8px; flex-direction: column; align-items: stretch; }
+  .search-wrap { max-width: 100%; min-width: unset; }
+  .date-range-wrap { flex-direction: row; flex-wrap: wrap; }
+  .date-input { flex: 1; min-width: 120px; }
+  .btn-update { width: 100%; }
 
-  /* Mobile bottom nav */
-  .mobile-nav { display: flex; }
+  /* Table scroll */
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .appt-table { font-size: 11px; min-width: 500px; }
+  .appt-table th, .appt-table td { padding: 8px 8px; }
+
+  /* Modal */
+  .modal { margin: 0; border-radius: 12px 12px 0 0; position: fixed; bottom: 0; left: 0; right: 0; max-width: 100%; }
+  .modal-overlay { align-items: flex-end; padding: 0; }
+  .form-row { grid-template-columns: 1fr; gap: 8px; }
+  .detail-content { grid-template-columns: 100px 1fr; }
 }
