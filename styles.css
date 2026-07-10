@@ -854,15 +854,17 @@ select.form-input:has(option[value=""]:checked) {
     font-weight: 700;
   }
 
-  /* Calendar cells */
-  .cal-cell { min-height: 64px; padding: 4px 2px 2px 4px; }
+  /* Calendar cells — taller to fit 3-line chips */
+  .cal-cell { min-height: 72px; padding: 4px 2px 2px 4px; }
   .cal-date { font-size: 11px; margin-bottom: 2px; font-weight: 600; }
 
-  /* Appointment chips on mobile */
-  .appt-chip { padding: 2px 4px; gap: 0; }
-  .chip-doctor, .chip-time { display: none; }
+  /* Appointment chips on mobile — show all 3 lines compactly */
+  .appt-chip { padding: 3px 4px; flex-direction: column; align-items: flex-start; gap: 1px; }
+  .chip-info { width: 100%; }
+  .chip-patient { font-size: 9px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .chip-doctor { display: block !important; font-size: 8px; color: #388E3C; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .chip-time    { display: block !important; font-size: 8px; color: #555; white-space: nowrap; }
   .chip-actions { display: none; }
-  .chip-patient { font-size: 9px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
   /* Dashboard */
   .dashboard-title { font-size: 16px; margin-bottom: 10px; }
