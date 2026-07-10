@@ -63,16 +63,31 @@ sidebarToggle.addEventListener('click', () => {
 });
 
 /* ===== Nav ===== */
-document.querySelectorAll('.nav-item').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    currentView = btn.dataset.view;
-    document.getElementById('viewCalendar').classList.toggle('hidden', currentView !== 'calendar');
-    document.getElementById('viewDashboard').classList.toggle('hidden', currentView !== 'dashboard');
-    if (currentView === 'dashboard') renderDashboard();
-    if (currentView === 'calendar') renderCalendar();
+function switchView(view) {
+  currentView = view;
+  document.getElementById('viewCalendar').classList.toggle('hidden', view !== 'calendar');
+  document.getElementById('viewDashboard').classList.toggle('hidden', view !== 'dashboard');
+
+  // Sidebar nav
+  document.querySelectorAll('.nav-item').forEach(b => {
+    b.classList.toggle('active', b.dataset.view === view);
   });
+
+  // Mobile bottom nav
+  document.querySelectorAll('.mobile-nav-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.view === view);
+  });
+
+  if (view === 'dashboard') renderDashboard();
+  if (view === 'calendar') renderCalendar();
+}
+
+document.querySelectorAll('.nav-item').forEach(btn => {
+  btn.addEventListener('click', () => switchView(btn.dataset.view));
+});
+
+document.querySelectorAll('.mobile-nav-btn').forEach(btn => {
+  btn.addEventListener('click', () => switchView(btn.dataset.view));
 });
 
 /* ===== Book Appointment Button ===== */
