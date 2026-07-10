@@ -289,8 +289,8 @@ body {
 .cal-day-header.friday { color: var(--blue); }
 
 /* Desktop: full name visible, short hidden */
-.day-short { display: none; }
-.day-full  { display: inline; }
+.day-short { display: none !important; }
+.day-full  { display: inline !important; }
 .cal-body {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -845,8 +845,8 @@ select.form-input:has(option[value=""]:checked) {
   .view-select { font-size: 11px; padding: 4px 22px 4px 6px; }
 
   /* Day headers: switch to 2-letter short names */
-  .day-full  { display: none; }
-  .day-short { display: inline; }
+  .day-full  { display: none !important; }
+  .day-short { display: inline !important; }
   .cal-day-header {
     font-size: 11px;
     padding: 8px 2px;
