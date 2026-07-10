@@ -879,9 +879,13 @@ select.form-input:has(option[value=""]:checked) {
   .appt-table { font-size: 11px; min-width: 480px; }
   .appt-table th, .appt-table td { padding: 7px 8px; }
 
-  /* Modal slides up from bottom */
+  /* Modal slides up from bottom — only for schedule form */
   .modal-overlay { align-items: flex-end; padding: 0; }
   .modal { border-radius: 14px 14px 0 0; max-width: 100%; max-height: 90vh; overflow-y: auto; }
   .form-row { grid-template-columns: 1fr; gap: 8px; }
   .detail-content { grid-template-columns: 90px 1fr; }
+
+  /* Detail modal stays centered */
+  #detailOverlay { align-items: center; padding: 16px; }
+  #detailOverlay .modal { border-radius: 8px; max-width: 360px; max-height: 85vh; }
 }
